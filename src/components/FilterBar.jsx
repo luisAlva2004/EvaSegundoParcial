@@ -14,9 +14,9 @@ return (
 
     <select value={filter.category} onChange={e => setFilter({ ...filter, category: e.target.value })}>
         <option value="todas">Todas</option>
-        {uniqueCategories.map(cat => (
-            <option key={cat} value={cat}>{cat}</option>
-        ))}
+        <option value="escolar">Escolar</option>
+        <option value="cotidiano">Cotidiano</option>
+        <option value="trabajo">Trabajo</option>
     </select>
     </div>
 );

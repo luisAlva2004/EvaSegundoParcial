@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 
 function TaskForm({ onAdd, onUpdate, editingTask, setEditingTask }) {
-    const [formData, setFormData] = useState({ title: "", description: "", category: "", status: "nuevo" });
+    const [formData, setFormData] = useState({ title: "", description: "", category: "--", status: "nuevo" });
 
 useEffect(() => {
     if (editingTask) setFormData(editingTask);
@@ -19,19 +19,24 @@ const handleSubmit = e => {
     } else {
         onAdd({ ...formData, id: crypto.randomUUID(), createdAt: Date.now() });
     }
-    setFormData({ title: "", description: "", category: "", status: "nuevo" });
+    setFormData({ title: "", description: "", category: "--", status: "nuevo" });
 };
 
 return (
     <form onSubmit={handleSubmit}>
         <input name="title" placeholder="Título" value={formData.title} onChange={handleChange} />
         <input name="description" placeholder="Descripción" value={formData.description} onChange={handleChange} />
-        <input name="category" placeholder="Categoría" value={formData.category} onChange={handleChange} />
+        <select name="category" value={formData.category} onChange={handleChange}>
+        <option value="--">--</option>
+        <option value="escolar">Escolar</option>
+        <option value="cotidiano">Cotidiano</option>
+        <option value="trabajo">Trabajo</option>
+        </select>
         <select name="status" value={formData.status} onChange={handleChange}>
         <option value="nuevo">Nuevo</option>
         <option value="en-proceso">En proceso</option>
         <option value="terminado">Terminado</option>
-    </select>
+        </select>
         <button type="submit">{editingTask ? "Actualizar" : "Agregar"}</button>
     </form>
 );
