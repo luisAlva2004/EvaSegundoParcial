@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import "../styles/TaskForm.css";
 
 function TaskForm({ onAdd, onUpdate, editingTask, setEditingTask }) {
     const [formData, setFormData] = useState({ title: "", description: "", category: "--", status: "nuevo" });
@@ -23,23 +24,44 @@ const handleSubmit = e => {
 };
 
 return (
-    <form onSubmit={handleSubmit}>
-        <input name="title" placeholder="Título" value={formData.title} onChange={handleChange} />
-        <input name="description" placeholder="Descripción" value={formData.description} onChange={handleChange} />
-        <select name="category" value={formData.category} onChange={handleChange}>
-        <option value="--">--</option>
-        <option value="escolar">Escolar</option>
-        <option value="cotidiano">Cotidiano</option>
-        <option value="trabajo">Trabajo</option>
-        </select>
-        <select name="status" value={formData.status} onChange={handleChange}>
-        <option value="nuevo">Nuevo</option>
-        <option value="en-proceso">En proceso</option>
-        <option value="terminado">Terminado</option>
-        </select>
-        <button type="submit">{editingTask ? "Actualizar" : "Agregar"}</button>
-    </form>
+  <form className="task-form" onSubmit={handleSubmit}>
+    <input
+      name="title"
+      placeholder="Título"
+      value={formData.title}
+      onChange={handleChange}
+    />
+    <input
+      name="description"
+      placeholder="Descripción"
+      value={formData.description}
+      onChange={handleChange}
+    />
+    <select
+      name="category"
+      value={formData.category}
+      onChange={handleChange}
+    >
+      <option value="--">--</option>
+      <option value="escolar">Escolar</option>
+      <option value="cotidiano">Cotidiano</option>
+      <option value="trabajo">Trabajo</option>
+    </select>
+    <select
+      name="status"
+      value={formData.status}
+      onChange={handleChange}
+    >
+      <option value="nuevo">Nuevo</option>
+      <option value="en-proceso">En proceso</option>
+      <option value="terminado">Terminado</option>
+    </select>
+    <button type="submit">
+      {editingTask ? "Actualizar" : "Agregar"}
+    </button>
+  </form>
 );
+
 }
 
 export default TaskForm;

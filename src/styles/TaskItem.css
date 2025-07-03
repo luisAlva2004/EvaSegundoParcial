@@ -1,0 +1,32 @@
+.task-item {
+  background-color: #ffffff;
+  border-left: 5px solid #2d8cff;
+  padding: 1rem;
+  margin-bottom: 1rem;
+  border-radius: 8px;
+  list-style: none;
+  box-shadow: 0 0 6px rgba(0, 0, 0, 0.05);
+}
+
+.task-item p {
+  margin: 0.5rem 0;
+}
+
+.task-item button {
+  margin-right: 0.5rem;
+  padding: 0.4rem 0.8rem;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 0.9rem;
+}
+
+.task-item button:first-of-type {
+  background-color: #ffa726;
+  color: white;
+}
+
+.task-item button:last-of-type {
+  background-color: #ef5350;
+  color: white;
+}

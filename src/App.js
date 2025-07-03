@@ -1,10 +1,8 @@
-import logo from './logo.svg';
+import React, { useState, useEffect } from "react";
 import TaskForm from "./components/TaskForm";
 import TaskList from "./components/TaskList";
 import FilterBar from "./components/FilterBar";
-import React, { useState, useEffect } from "react";
-
-import './App.css';
+import "./App.css"; // Asegúrate de importar esto
 
 function App() {
   const [tasks, setTasks] = useState([]);
@@ -34,9 +32,14 @@ function App() {
   const deleteTask = id => setTasks(tasks.filter(task => task.id !== id));
 
   return (
-    <div>
+    <div className="app-container">
       <h1>Gestor de Tareas</h1>
-      <TaskForm onAdd={addTask} onUpdate={updateTask} editingTask={editingTask} setEditingTask={setEditingTask} />
+      <TaskForm
+        onAdd={addTask}
+        onUpdate={updateTask}
+        editingTask={editingTask}
+        setEditingTask={setEditingTask}
+      />
       <FilterBar tasks={tasks} filter={filter} setFilter={setFilter} />
       <TaskList tasks={filteredTasks} onDelete={deleteTask} onEdit={setEditingTask} />
     </div>
