@@ -1,5 +1,5 @@
 import React from "react";
-import "../styles/TaskItem.css";
+import "../styles/item.css";
 
 function TaskItem({ task, onDelete, onEdit }) {
   return (

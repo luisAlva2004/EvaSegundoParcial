@@ -1,5 +1,5 @@
 import React from "react";
-import "../styles/filterbar.css";
+import "../styles/filtro.css";
 
 function FilterBar({ tasks, filter, setFilter }) {
   const uniqueCategories = [...new Set(tasks.map(task => task.category))];

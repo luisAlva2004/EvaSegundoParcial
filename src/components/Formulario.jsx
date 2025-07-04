@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
-import "../styles/TaskForm.css";
+import "../styles/form.css";
 
-function TaskForm({ onAdd, onUpdate, editingTask, setEditingTask }) {
+function Formulario({ onAdd, onUpdate, editingTask, setEditingTask }) {
     const [formData, setFormData] = useState({ title: "", description: "", category: "--", status: "nuevo" });
 
 useEffect(() => {
@@ -64,4 +64,4 @@ return (
 
 }
 
-export default TaskForm;
+export default Formulario;
